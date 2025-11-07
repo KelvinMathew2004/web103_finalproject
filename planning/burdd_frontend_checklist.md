@@ -202,6 +202,66 @@ _Quality: ESLint + Prettier + Vitest + React Testing Library_
 
 ---
 
+# 🚀 Public Feedback Portal Checklist
+
+This checklist covers the features needed for the public-facing social media-style interface, which allows users to submit feedback and track its progress.
+
+## 🏛️ Core Pages & Views
+
+- [ ] **Feedback Dashboard (Homepage)**
+  - Displays a list/feed of all public submissions.
+  - Primary "Submit New Idea" CTA button.
+
+- [ ] **Feedback Detail Page**
+  - Shows the full details for a single submission.
+  - Contains the upvote button, status, and comment thread.
+
+- [ ] **Submission Form Page**
+  - A dedicated page with the form to submit new feedback.
+
+- [ ] **Submission Success Page**
+  - A confirmation screen shown after submitting.
+  - Displays the unique "tracking link" for the user to "revisit" their ticket (avoids public-user auth).
+
+## 🔁 Key Features & Functionality
+
+- [ ] **Feedback List & Filtering**
+  - Render each submission as a "card" in the list.
+  - Display essential info on the card: Title, Upvote Count, Comment Count, Category Tag, and Status Badge.
+  - **Filter controls:**
+    - [ ] Filter by Category (Feature, Issue, Suggestion)
+    - [ ] Filter by Status (Under Review, In Progress, Shipped)
+  - **Sort controls:**
+    - [ ] Sort by "Hot" / "Trending" (Upvotes + recent activity)
+    - [ ] Sort by "Top" (Most upvotes)
+    - [ ] Sort by "Newest"
+
+- [ ] **Submission Form**
+  - Title field (text input)
+  - Category field (dropdown/radio: Feature, Issue, Suggestion)
+  - Description field (textarea, ideally supporting simple Markdown)
+  - (Optional) Field for attachments/screenshots
+  - Client-side validation for required fields
+
+- [ ] **User Interaction**
+  - **Upvoting:** A button on both the list card and the detail page that increments a counter (one vote per user/session)
+  - **Commenting:**
+    - [ ] A "post a comment" form on the detail page
+    - [ ] A read-only list displaying all comments for that submission
+
+- [ ] **Status Tracking (The link to the Dev side)**
+  - Display the submission's current status (e.g., "Backlog," "In Progress," "Completed") as a visual badge
+  - This status is read-only for the public and is set by the dev team (from the Burdd app)
+
+## 🧩 Reusable UI Components
+
+- [ ] **FeedbackCard:** The item used in the main dashboard list
+- [ ] **UpvoteButton:** A stateful component showing count and clicked/un-clicked state
+- [ ] **StatusBadge:** A simple tag with different colors based on the status prop (e.g., blue for "In Progress," green for "Shipped")
+- [ ] **CategoryTag:** A tag for "Feature," "Issue," etc.
+- [ ] **CommentThread:** Container that lists all Comment components
+- [ ] **Comment:** A simple component to display a comment's text and author/date
+
 ## **🚀 Pre-Release Checklist**
 
 - [ ] Local build verified (`npm run build`)  
